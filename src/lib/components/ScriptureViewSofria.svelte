@@ -2503,8 +2503,6 @@ LOGGING:
                                 }
                                 case 'usfm:zcstyle': {
                                     const style = element.atts['id'][0];
-                                    console.log('Element: ');
-                                    console.log(element);
                                     workspace.encloseInSpanTag = document.createElement('span');
                                     workspace.encloseInSpanTag.classList.add(style);
                                     break;
