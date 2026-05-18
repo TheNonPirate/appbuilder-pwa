@@ -20,14 +20,16 @@
         "clean": "rimraf .svelte-kit build src/gen-assets src/lib/data/config.js src/lib/data/catalog.js src/lib/data/firebase-config.js src/lib/data/contents.js static/illustrations static/icons static/contents static/manifest*.json && echo 🔔 Reminder: The project cannot be built until the conversion scripts are run again.",
         "clean:data": "rimraf --glob data/*",
         "clean:all": "npm run clean && npm run clean:data",
-        "test": "vitest",
+        "test": "ts-node convert/runTests.ts",
         "test:ui": "vitest --ui",
+        "test:e2e": "playwright test",
         "enforce-version": "ts-node convert/checkVersion.ts"
     },
     "devDependencies": {
         "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
         "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
         "@ianvs/prettier-plugin-sort-imports": "^4.4.0",
+        "@playwright/test": "^1.49.1",
         "@sveltejs/adapter-static": "^3",
         "@sveltejs/kit": "^2.15.1",
         "@sveltejs/vite-plugin-svelte": "^6.2.1",
