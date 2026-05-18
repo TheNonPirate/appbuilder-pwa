@@ -60,6 +60,10 @@
     import { onDestroy, onMount } from 'svelte';
     import { pinch, swipe } from 'svelte-gestures';
 
+    const illustrationURLs = import.meta.glob('$assets/illustrations/*', { eager: true });
+    console.log('Illustrations: ');
+    console.log(illustrationURLs);
+
     const borders = import.meta.glob('./*', {
         import: 'default',
         eager: true,
@@ -398,7 +402,9 @@
             .books.find((x) => x.id === $refs.book)?.pageIllustrations;
         for (let i = 0; i < illustrations.length; i++) {
             if (illustrations[i].num === Number($refs.chapter)) {
-                return base + '/illustrations/' + illustrations[i].filename;
+                return illustrationURLs[
+                    '/src/gen-assets/illustrations/' + illustrations[i].filename
+                ].default; //This works for both npm run dev and npm run build/preview, but it does have the hardcoded '/src/gen-assets/illustrations/'. Is there a better way to do this?
             }
         }
     }
