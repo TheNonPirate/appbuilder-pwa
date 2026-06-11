@@ -1639,6 +1639,7 @@ LOGGING:
                                             workspace.paragraphDiv.classList.add(paraClass);
                                             if (paraClass === 'b') {
                                                 workspace.paragraphDiv.innerHTML += '<br>';
+                                                workspace.paragraphDiv.classList.add('txs');
                                             }
                                         }
                                         break;
