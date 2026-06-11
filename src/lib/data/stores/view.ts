@@ -32,8 +32,8 @@ export const ModalType = {
     Font: 'font',
     StopPlan: 'stop-plan',
     PlaybackSpeed: 'playback-speed',
-    VerseOnImage: 'verse-on-image',
-    Download: 'download'
+    Download: 'download',
+    Share: 'share'
 } as const;
 export type ModalType = (typeof ModalType)[keyof typeof ModalType];
 

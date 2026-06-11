@@ -9,6 +9,7 @@
     import FontSelector from '$lib/components/FontSelector.svelte';
     import NoteDialog from '$lib/components/NoteDialog.svelte';
     import PlanStopDialog from '$lib/components/PlanStopDialog.svelte';
+    import ShareSelector from '$lib/components/ShareSelector.svelte';
     import Sidebar from '$lib/components/Sidebar.svelte';
     import TextAppearanceSelector from '$lib/components/TextAppearanceSelector.svelte';
     import catalog from '$lib/data/catalogData';
@@ -89,6 +90,9 @@
                     case ModalType.PlaybackSpeed:
                         audioPlaybackSpeed?.showModal();
                         break;
+                    case ModalType.Share:
+                        shareSelector?.showModal();
+                        break;
                 }
             });
             modal.clear();
@@ -108,6 +112,7 @@
     let textAppearanceSelector: TextAppearanceSelector | undefined = $state();
     let collectionSelector: CollectionSelector | undefined = $state();
     let fontSelector: FontSelector | undefined = $state();
+    let shareSelector: ShareSelector | undefined = $state();
     let noteDialog: NoteDialog | undefined = $state();
     let planStopDialog: PlanStopDialog | undefined = $state(undefined);
     let planStopId: string = $state('');
@@ -156,6 +161,7 @@
         />
 
         <AudioPlaybackSpeed bind:this={audioPlaybackSpeed} />
+        <ShareSelector bind:this={shareSelector} />
     </div>
 
     <Sidebar>
